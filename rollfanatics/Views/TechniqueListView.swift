@@ -8,19 +8,33 @@
 import SwiftUI
 
 struct TechniqueListView: View {
-    var records: [TechniqueRecord]
+    @State private var isPresentingNew = false
+    @Binding var records: [TechniqueRecord]
     var body: some View {
-        List(records) {record in
-            VStack {
-                CardView(record: record)
-
-            } .listRowBackground(record.type.theme.mainColor)
+        NavigationStack {
+            List($records) {$record in
+                NavigationLink(destination: TechniqueView(record: $record)) {
+                    CardView(record: record)
+                    
+                } .listRowBackground(record.type.theme.mainColor)
+            }
+            .navigationTitle("Technique Wiki")
+            .toolbar {
+                Button(action: {
+                    isPresentingNew = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $isPresentingNew) {
+            NewTechniqueView(records: $records, isPresentingNew: $isPresentingNew)
         }
     }
 }
 
 struct TechniqueListView_Previews: PreviewProvider {
     static var previews: some View {
-        TechniqueListView(records: TechniqueRecord.sampleData)
+        TechniqueListView(records: .constant(TechniqueRecord.sampleData))
     }
 }

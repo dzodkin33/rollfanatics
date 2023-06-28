@@ -16,6 +16,7 @@ enum TechniqueType : String, Identifiable, Codable {
     case guardRetention = "Guard Retention" // stupid fix, will deal with it later
     case submission
     case escape
+    case new
     
     var name: String {
         rawValue.capitalized
@@ -34,6 +35,7 @@ enum TechniqueType : String, Identifiable, Codable {
         case .guardRetention: return .teal
         case .submission: return .purple
         case .escape: return .navy
+        case .new: return .gray
         }
     }
     

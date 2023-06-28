@@ -14,11 +14,12 @@ enum Theme: String, CaseIterable, Identifiable, Codable {
     case purple
     case sky
     case teal
+    case gray
     
     var accentColor: Color {
         switch self {
         case .lavender, .sky, .teal: return .black
-        case .indigo, .navy, .purple: return .white
+        case .indigo, .navy, .purple, .gray: return .white
         }
     }
     

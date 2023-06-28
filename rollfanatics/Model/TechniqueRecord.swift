@@ -14,7 +14,7 @@ struct TechniqueRecord: Identifiable, Codable {
     var position: String
     var type: TechniqueType
     var bodyParts: [BodyPart]
-    var notes: [String]
+    var notes: [Note]
     
     
     init(id: UUID = UUID(), name: String, position: String, type: TechniqueType, bodyParts: [BodyPart], notes: [String]) {
@@ -23,7 +23,28 @@ struct TechniqueRecord: Identifiable, Codable {
         self.position = position
         self.type = type
         self.bodyParts = bodyParts
-        self.notes = notes
+        self.notes = notes.map {Note(note: $0)}
+    }
+}
+
+extension TechniqueRecord {
+    struct Note: Identifiable, Codable {
+        let id: UUID
+        var note: String
+        
+        init(id: UUID = UUID(), note: String) {
+            self.id = id
+            self.note = note
+        }
+    }
+    
+    static var emptyRecord: TechniqueRecord {
+        TechniqueRecord(
+            name: "",
+            position: "",
+            type: .new,
+            bodyParts:[],
+            notes: [])
     }
 }
 
