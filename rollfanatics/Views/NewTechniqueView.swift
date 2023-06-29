@@ -14,7 +14,7 @@ struct NewTechniqueView: View {
     
     var body: some View {
         NavigationStack {
-            TechniqueView(record: $newRecord)
+            TechniqueView(record: $newRecord, records: $records)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dissmiss") {

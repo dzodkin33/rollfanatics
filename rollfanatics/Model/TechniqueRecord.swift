@@ -8,7 +8,11 @@
 import Foundation
 
 
-struct TechniqueRecord: Identifiable, Codable {
+struct TechniqueRecord: Identifiable, Codable, Equatable {
+    static func == (lhs: TechniqueRecord, rhs: TechniqueRecord) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let id: UUID
     var name: String
     var position: String

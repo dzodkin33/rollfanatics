@@ -13,7 +13,7 @@ struct TechniqueListView: View {
     var body: some View {
         NavigationStack {
             List($records) {$record in
-                NavigationLink(destination: TechniqueView(record: $record)) {
+                NavigationLink(destination: TechniqueView(record: $record, records: $records)) {
                     CardView(record: record)
                     
                 } .listRowBackground(record.type.theme.mainColor)

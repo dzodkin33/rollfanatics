@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-enum TechniqueType : String, Identifiable, Codable {
+enum TechniqueType : String, CaseIterable, Identifiable, Codable {
     
     case takedown
     case sweep

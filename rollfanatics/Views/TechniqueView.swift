@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct TechniqueView: View {
+    
+    // A current desplayed record
     @Binding var record: TechniqueRecord
+    
+    // A list of all records
+    @Binding var records: [TechniqueRecord]
+    
+    // An empty placeholder note
     @State private var newNote = ""
     
+    // Determines if to show a conformation pop up
+    @State private var showAlert = false
+
+    @Environment(\.presentationMode) var presentation
+    
     var body: some View {
-        NavigationView{
             List {
                 Section (header: Text("Basic Info")) {
                     HStack {
@@ -27,21 +38,13 @@ struct TechniqueView: View {
                         Text(record.position)
                     }
                     
-                    HStack {
-                        Text("Type:")
-                        Spacer()
-                        Text("\(record.type.name)")
-                            .padding(4)
-                            .background(record.type.theme.mainColor)
-                            .foregroundColor(record.type.theme.accentColor)
-                            .cornerRadius(4)
-                    }
+                    TypePickerView(selected: $record.type)
                 }
                 Section (header: Text("Notes")) {
-                    ForEach(record.notes) { note in
+                    ForEach($record.notes) { note in
                         HStack {
                             Image(systemName: "list.bullet")
-                            Text(note.note)
+                            TextField("Note", text: note.note, axis: .vertical)
                             Spacer()
                         }
                     }.onDelete { indexSet in
@@ -63,17 +66,44 @@ struct TechniqueView: View {
                         .disabled(newNote.isEmpty)
                     }
                 }
+        }.toolbar {
+            Button("Delete") {
+                showAlert = true
             }
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Confirm Deletion"),
+                message: Text("Are you sure you want to delete a technique?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    deleteRecord()
+                    presentation.wrappedValue.dismiss()
+                },
+                secondaryButton: .cancel()
+
+            )
+            
+        }
     }
+    
+    // Moves notes up and down
     func moveItem(from source: IndexSet, to destination: Int) {
         record.notes.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    // Delete current record and go back to navigation view 
+    func deleteRecord() {
+        guard let index = records.firstIndex(of: record) else {
+                    return
+        }
+        records.remove(at: index)
     }
 
 }
 
 struct TechniqueView_Previews: PreviewProvider {
     static var previews: some View {
-        TechniqueView(record: .constant(TechniqueRecord.sampleData[0]))
+        TechniqueView(record: .constant(TechniqueRecord.sampleData[0]),
+                      records:  .constant(TechniqueRecord.sampleData))
     }
 }
