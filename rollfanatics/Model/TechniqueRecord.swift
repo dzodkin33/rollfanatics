@@ -15,13 +15,13 @@ struct TechniqueRecord: Identifiable, Codable, Equatable {
     
     let id: UUID
     var name: String
-    var position: String
+    var position: PositionRecord
     var type: TechniqueType
     var bodyParts: [BodyPart]
     var notes: [Note]
     
     
-    init(id: UUID = UUID(), name: String, position: String, type: TechniqueType, bodyParts: [BodyPart], notes: [String]) {
+    init(id: UUID = UUID(), name: String, position: PositionRecord, type: TechniqueType, bodyParts: [BodyPart], notes: [String]) {
         self.id = id
         self.name = name
         self.position = position
@@ -29,6 +29,18 @@ struct TechniqueRecord: Identifiable, Codable, Equatable {
         self.bodyParts = bodyParts
         self.notes = notes.map {Note(note: $0)}
     }
+    
+    mutating func setPosition(positionRecord: inout PositionRecord) {
+        self.position = positionRecord
+        positionRecord.addAssosiatedTechnique(recordId: self.id)
+    }
+    
+    mutating func removePosition() {
+        var local = position
+        local.deleteAssosiatedTechnique(recordId: id)
+        position = PositionRecord.EmptyPosition
+    }
+
 }
 
 extension TechniqueRecord {
@@ -45,7 +57,7 @@ extension TechniqueRecord {
     static var emptyRecord: TechniqueRecord {
         TechniqueRecord(
             name: "",
-            position: "",
+            position: PositionRecord.EmptyPosition,
             type: .new,
             bodyParts:[],
             notes: [])
@@ -57,7 +69,7 @@ extension TechniqueRecord {
     [
         TechniqueRecord(
             name: "Sweep N1 from open guard",
-            position: "Open guard",
+            position: PositionRecord.sampleRecord[0],
             type: .sweep,
             bodyParts:[.leftWrist, .leftThigh, .leftAnkle],
             notes: ["Grab opponent by left wrist, and left ankle, put your leg against their hip, while spinning your body clockwise",
@@ -66,10 +78,11 @@ extension TechniqueRecord {
         
         TechniqueRecord(
             name: "Open guard pass N1",
-            position: "Standing",
+            position: PositionRecord.sampleRecord[1],
             type: .guardPass,
             bodyParts: [.leftShin],
             notes: ["Pull your body weight on one of the legs of your oppentn, sit on your toes",
                     "Keep pushing your opponent down, until you're able to walk across your opponent"])
     ]
+    
 }
