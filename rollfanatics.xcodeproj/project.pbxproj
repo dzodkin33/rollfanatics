@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */; };
-		278E10F92A463A4800BF6812 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E10F82A463A4800BF6812 /* ContentView.swift */; };
 		278E10FB2A463A4A00BF6812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FA2A463A4A00BF6812 /* Assets.xcassets */; };
 		278E10FE2A463A4A00BF6812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FD2A463A4A00BF6812 /* Preview Assets.xcassets */; };
 		278E11082A463A4A00BF6812 /* rollfanaticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E11072A463A4A00BF6812 /* rollfanaticsTests.swift */; };
 		278E11122A463A4A00BF6812 /* rollfanaticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E11112A463A4A00BF6812 /* rollfanaticsUITests.swift */; };
 		278E11142A463A4A00BF6812 /* rollfanaticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E11132A463A4A00BF6812 /* rollfanaticsUITestsLaunchTests.swift */; };
+		27C63EFC2A54592600072CD1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF42A54592600072CD1 /* CardView.swift */; };
+		27C63EFD2A54592600072CD1 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF52A54592600072CD1 /* TypeView.swift */; };
+		27C63EFE2A54592600072CD1 /* TypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF62A54592600072CD1 /* TypePickerView.swift */; };
+		27C63EFF2A54592600072CD1 /* TechniqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF72A54592600072CD1 /* TechniqueView.swift */; };
+		27C63F002A54592600072CD1 /* TechniqueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF82A54592600072CD1 /* TechniqueListView.swift */; };
+		27C63F012A54592600072CD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF92A54592600072CD1 /* ContentView.swift */; };
+		27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */; };
+		27C63F032A54592600072CD1 /* TechniqueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */; };
+		27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F052A54592F00072CD1 /* BodyParts.swift */; };
+		27C63F0B2A54592F00072CD1 /* PositionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F062A54592F00072CD1 /* PositionRecord.swift */; };
+		27C63F0C2A54592F00072CD1 /* TechniqueRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F072A54592F00072CD1 /* TechniqueRecord.swift */; };
+		27C63F0D2A54592F00072CD1 /* TechniqueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F082A54592F00072CD1 /* TechniqueType.swift */; };
+		27C63F0E2A54592F00072CD1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F092A54592F00072CD1 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,6 @@
 /* Begin PBXFileReference section */
 		278E10F32A463A4800BF6812 /* rollfanatics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rollfanatics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsApp.swift; sourceTree = "<group>"; };
-		278E10F82A463A4800BF6812 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		278E10FA2A463A4A00BF6812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		278E10FD2A463A4A00BF6812 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		278E11032A463A4A00BF6812 /* rollfanaticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rollfanaticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +55,19 @@
 		278E110D2A463A4A00BF6812 /* rollfanaticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rollfanaticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E11112A463A4A00BF6812 /* rollfanaticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsUITests.swift; sourceTree = "<group>"; };
 		278E11132A463A4A00BF6812 /* rollfanaticsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		27C63EF42A54592600072CD1 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		27C63EF52A54592600072CD1 /* TypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
+		27C63EF62A54592600072CD1 /* TypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePickerView.swift; sourceTree = "<group>"; };
+		27C63EF72A54592600072CD1 /* TechniqueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueView.swift; sourceTree = "<group>"; };
+		27C63EF82A54592600072CD1 /* TechniqueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueListView.swift; sourceTree = "<group>"; };
+		27C63EF92A54592600072CD1 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTechniqueView.swift; sourceTree = "<group>"; };
+		27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueHeaderView.swift; sourceTree = "<group>"; };
+		27C63F052A54592F00072CD1 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
+		27C63F062A54592F00072CD1 /* PositionRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionRecord.swift; sourceTree = "<group>"; };
+		27C63F072A54592F00072CD1 /* TechniqueRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueRecord.swift; sourceTree = "<group>"; };
+		27C63F082A54592F00072CD1 /* TechniqueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueType.swift; sourceTree = "<group>"; };
+		27C63F092A54592F00072CD1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +118,9 @@
 		278E10F52A463A4800BF6812 /* rollfanatics */ = {
 			isa = PBXGroup;
 			children = (
+				27C63F042A54592F00072CD1 /* Model */,
+				27C63EF32A54592600072CD1 /* Views */,
 				278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */,
-				278E10F82A463A4800BF6812 /* ContentView.swift */,
 				278E10FA2A463A4A00BF6812 /* Assets.xcassets */,
 				278E10FC2A463A4A00BF6812 /* Preview Content */,
 			);
@@ -125,6 +150,33 @@
 				278E11132A463A4A00BF6812 /* rollfanaticsUITestsLaunchTests.swift */,
 			);
 			path = rollfanaticsUITests;
+			sourceTree = "<group>";
+		};
+		27C63EF32A54592600072CD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27C63EF42A54592600072CD1 /* CardView.swift */,
+				27C63EF52A54592600072CD1 /* TypeView.swift */,
+				27C63EF62A54592600072CD1 /* TypePickerView.swift */,
+				27C63EF72A54592600072CD1 /* TechniqueView.swift */,
+				27C63EF82A54592600072CD1 /* TechniqueListView.swift */,
+				27C63EF92A54592600072CD1 /* ContentView.swift */,
+				27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */,
+				27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27C63F042A54592F00072CD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27C63F052A54592F00072CD1 /* BodyParts.swift */,
+				27C63F062A54592F00072CD1 /* PositionRecord.swift */,
+				27C63F072A54592F00072CD1 /* TechniqueRecord.swift */,
+				27C63F082A54592F00072CD1 /* TechniqueType.swift */,
+				27C63F092A54592F00072CD1 /* Theme.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +309,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278E10F92A463A4800BF6812 /* ContentView.swift in Sources */,
+				27C63F002A54592600072CD1 /* TechniqueListView.swift in Sources */,
+				27C63EFE2A54592600072CD1 /* TypePickerView.swift in Sources */,
+				27C63F012A54592600072CD1 /* ContentView.swift in Sources */,
+				27C63EFC2A54592600072CD1 /* CardView.swift in Sources */,
+				27C63EFD2A54592600072CD1 /* TypeView.swift in Sources */,
+				27C63F0D2A54592F00072CD1 /* TechniqueType.swift in Sources */,
+				27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */,
+				27C63F032A54592600072CD1 /* TechniqueHeaderView.swift in Sources */,
 				278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */,
+				27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */,
+				27C63EFF2A54592600072CD1 /* TechniqueView.swift in Sources */,
+				27C63F0E2A54592F00072CD1 /* Theme.swift in Sources */,
+				27C63F0C2A54592F00072CD1 /* TechniqueRecord.swift in Sources */,
+				27C63F0B2A54592F00072CD1 /* PositionRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
