@@ -35,7 +35,7 @@ struct TechniqueView: View {
                     HStack {
                         Text("From position:")
                         Spacer()
-                        Text(record.position.name)
+                        Text(record.position)
                     }
                     
                     TypePickerView(selected: $record.type)
