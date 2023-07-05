@@ -17,7 +17,7 @@ struct CardView: View {
             HStack {
                 Label("\(record.type.name)", systemImage: "person.3")
                 Spacer()
-                Label("\(record.position.name)", systemImage: "clock")
+                Label("\(record.position)", systemImage: "clock")
                 
             }
             .font(.caption)

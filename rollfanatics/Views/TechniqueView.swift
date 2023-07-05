@@ -35,7 +35,7 @@ struct TechniqueView: View {
                     HStack {
                         Text("From position:")
                         Spacer()
-                        Text(record.position.name)
+                        Text(record.position)
                     }
                     
                     TypePickerView(selected: $record.type)
@@ -66,7 +66,8 @@ struct TechniqueView: View {
                         .disabled(newNote.isEmpty)
                     }
                 }
-        }.toolbar {
+        }
+            .toolbar {
             Button("Delete") {
                 showAlert = true
             }
@@ -82,7 +83,7 @@ struct TechniqueView: View {
                 secondaryButton: .cancel()
 
             )
-            
+
         }
     }
     
@@ -93,10 +94,13 @@ struct TechniqueView: View {
     
     // Delete current record and go back to navigation view 
     func deleteRecord() {
-        guard let index = records.firstIndex(of: record) else {
-                    return
+        for index in $records.indices {
+            print(index)
+            if $records[index].id == record.id  {
+                records.remove(at: index)
+                return
+            }
         }
-        records.remove(at: index)
     }
 
 }
