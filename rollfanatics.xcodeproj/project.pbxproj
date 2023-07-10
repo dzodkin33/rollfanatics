@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27280F1C2A5C450C000155FC /* PositionPickerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27280F1B2A5C450C000155FC /* PositionPickerCardView.swift */; };
+		27280F212A5C461E000155FC /* PositionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27280F202A5C461E000155FC /* PositionPicker.swift */; };
 		278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */; };
 		278E10FB2A463A4A00BF6812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FA2A463A4A00BF6812 /* Assets.xcassets */; };
 		278E10FE2A463A4A00BF6812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FD2A463A4A00BF6812 /* Preview Assets.xcassets */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27280F1B2A5C450C000155FC /* PositionPickerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerCardView.swift; sourceTree = "<group>"; };
+		27280F202A5C461E000155FC /* PositionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPicker.swift; sourceTree = "<group>"; };
 		278E10F32A463A4800BF6812 /* rollfanatics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rollfanatics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsApp.swift; sourceTree = "<group>"; };
 		278E10FA2A463A4A00BF6812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +99,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27280F1D2A5C4511000155FC /* TechniqueView */ = {
+			isa = PBXGroup;
+			children = (
+				27280F1F2A5C45F3000155FC /* TypePicker */,
+				27280F1E2A5C45E1000155FC /* PositionPicker */,
+				27C63EF72A54592600072CD1 /* TechniqueView.swift */,
+				27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */,
+			);
+			path = TechniqueView;
+			sourceTree = "<group>";
+		};
+		27280F1E2A5C45E1000155FC /* PositionPicker */ = {
+			isa = PBXGroup;
+			children = (
+				27280F1B2A5C450C000155FC /* PositionPickerCardView.swift */,
+				27280F202A5C461E000155FC /* PositionPicker.swift */,
+			);
+			path = PositionPicker;
+			sourceTree = "<group>";
+		};
+		27280F1F2A5C45F3000155FC /* TypePicker */ = {
+			isa = PBXGroup;
+			children = (
+				27C63EF62A54592600072CD1 /* TypePickerView.swift */,
+				27C63EF52A54592600072CD1 /* TypeView.swift */,
+			);
+			path = TypePicker;
+			sourceTree = "<group>";
+		};
 		278E10EA2A463A4800BF6812 = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +153,6 @@
 			children = (
 				27C63F042A54592F00072CD1 /* Model */,
 				27C63EF32A54592600072CD1 /* Views */,
-				278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */,
 				278E10FA2A463A4A00BF6812 /* Assets.xcassets */,
 				278E10FC2A463A4A00BF6812 /* Preview Content */,
 			);
@@ -155,13 +187,11 @@
 		27C63EF32A54592600072CD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27280F1D2A5C4511000155FC /* TechniqueView */,
 				27C63EF42A54592600072CD1 /* CardView.swift */,
-				27C63EF52A54592600072CD1 /* TypeView.swift */,
-				27C63EF62A54592600072CD1 /* TypePickerView.swift */,
-				27C63EF72A54592600072CD1 /* TechniqueView.swift */,
 				27C63EF82A54592600072CD1 /* TechniqueListView.swift */,
 				27C63EF92A54592600072CD1 /* ContentView.swift */,
-				27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */,
+				278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */,
 				27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */,
 			);
 			path = Views;
@@ -311,6 +341,7 @@
 			files = (
 				27C63F002A54592600072CD1 /* TechniqueListView.swift in Sources */,
 				27C63EFE2A54592600072CD1 /* TypePickerView.swift in Sources */,
+				27280F212A5C461E000155FC /* PositionPicker.swift in Sources */,
 				27C63F012A54592600072CD1 /* ContentView.swift in Sources */,
 				27C63EFC2A54592600072CD1 /* CardView.swift in Sources */,
 				27C63EFD2A54592600072CD1 /* TypeView.swift in Sources */,
@@ -318,6 +349,7 @@
 				27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */,
 				27C63F032A54592600072CD1 /* TechniqueHeaderView.swift in Sources */,
 				278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */,
+				27280F1C2A5C450C000155FC /* PositionPickerCardView.swift in Sources */,
 				27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */,
 				27C63EFF2A54592600072CD1 /* TechniqueView.swift in Sources */,
 				27C63F0E2A54592F00072CD1 /* Theme.swift in Sources */,

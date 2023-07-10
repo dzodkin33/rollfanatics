@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PositionRecord:Identifiable, Codable  {
+struct PositionRecord:Identifiable, Codable, Hashable  {
     let id: UUID
     var name: String
     var listOfTechniques: [UUID]
@@ -58,6 +58,7 @@ extension PositionRecord {
         PositionRecord(
             name: "Standing",
             listOfTechniques: []
-        )
+        ),
+        PositionRecord.EmptyPosition
     ]
 }
