@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PositionPicker: View {
-    @Binding var selected: PositionRecord
+    @Binding var record: TechniqueRecord
     @Binding var positions: [PositionRecord]
     
     var body: some View {
         Picker("Position:",
-               selection: $selected) {
-            ForEach($positions) { position in
-                PositionPickerCardView(position: position).tag(position.id)
+               selection: $record.position) {
+            ForEach($positions) { $position in
+                PositionPickerCardView(position: $position).tag(position)
             }
         }.pickerStyle(.navigationLink)
     }
@@ -27,7 +27,7 @@ struct PositionPicker: View {
 struct PositionPicker_Previews: PreviewProvider {
     static var previews: some View {
         PositionPicker(
-            selected: .constant(PositionRecord.sampleRecord[0]),
+            record: .constant(TechniqueRecord.sampleData[0]),
             positions: .constant(PositionRecord.sampleRecord)
         )
     }

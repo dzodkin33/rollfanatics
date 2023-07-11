@@ -66,7 +66,7 @@ extension TechniqueRecord {
     [
         TechniqueRecord(
             name: "Sweep N1 from open guard",
-            position: PositionRecord.EmptyPosition,
+            position: PositionRecord.sampleRecord[0],
             type: .sweep,
             bodyParts:[.leftWrist, .leftThigh, .leftAnkle],
             notes: ["Grab opponent by left wrist, and left ankle, put your leg against their hip, while spinning your body clockwise",
@@ -75,7 +75,7 @@ extension TechniqueRecord {
         
         TechniqueRecord(
             name: "Open guard pass N1",
-            position: PositionRecord.EmptyPosition,
+            position: PositionRecord.sampleRecord[0],
             type: .guardPass,
             bodyParts: [.leftShin],
             notes: ["Pull your body weight on one of the legs of your oppentn, sit on your toes",

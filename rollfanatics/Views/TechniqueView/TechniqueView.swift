@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TechniqueView: View {
     
+    @Binding var positions: [PositionRecord]
+    
     // A current desplayed record
     @Binding var record: TechniqueRecord
     
@@ -32,11 +34,8 @@ struct TechniqueView: View {
                             .multilineTextAlignment(.trailing)
 
                     }
-                    HStack {
-                        Text("From position:")
-                        Spacer()
-                        Text(record.position.name)
-                    }
+                    PositionPicker(record: $record,
+                                   positions: $positions)
                     
                     TypePickerView(selected: $record.type)
                 }
@@ -95,7 +94,6 @@ struct TechniqueView: View {
     // Delete current record and go back to navigation view 
     func deleteRecord() {
         for index in $records.indices {
-            print(index)
             if $records[index].id == record.id  {
                 records.remove(at: index)
                 return
@@ -107,7 +105,8 @@ struct TechniqueView: View {
 
 struct TechniqueView_Previews: PreviewProvider {
     static var previews: some View {
-        TechniqueView(record: .constant(TechniqueRecord.sampleData[0]),
+        TechniqueView(positions: .constant(PositionRecord.sampleRecord),
+                    record: .constant(TechniqueRecord.sampleData[0]),
                       records:  .constant(TechniqueRecord.sampleData))
     }
 }

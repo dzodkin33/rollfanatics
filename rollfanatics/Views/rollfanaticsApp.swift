@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct rollfanaticsApp: App {
-    @State var records:[TechniqueRecord] = TechniqueRecord.sampleData
+    @State var positions: [PositionRecord] = PositionRecord.sampleRecord
+    @State var records:[TechniqueRecord] = TechniqueRecord.sampleData// todo: populate here 
     var body: some Scene {
         WindowGroup {
-           TechniqueListView(records: $records)
+            TechniqueListView(records: $records, positions: $positions)
         }
     }
 }

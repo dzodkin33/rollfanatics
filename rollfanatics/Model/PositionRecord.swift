@@ -43,7 +43,7 @@ struct PositionRecord:Identifiable, Codable, Hashable  {
 extension PositionRecord {
     static var EmptyPosition: PositionRecord {
         PositionRecord(
-            name: "",
+            name: "default",
             listOfTechniques: []
         )
     }
@@ -58,7 +58,6 @@ extension PositionRecord {
         PositionRecord(
             name: "Standing",
             listOfTechniques: []
-        ),
-        PositionRecord.EmptyPosition
+        )
     ]
 }
