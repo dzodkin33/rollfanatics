@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct PositionRecord:Identifiable, Codable, Hashable  {
+struct PositionRecord:Identifiable, Codable, Hashable, Equatable  {
     let id: UUID
     var name: String
     var listOfTechniques: [UUID]
+    
     
     init(id: UUID = UUID(), name: String, listOfTechniques: [UUID]) {
         self.id = id
@@ -36,7 +37,12 @@ struct PositionRecord:Identifiable, Codable, Hashable  {
     }
     
     mutating func addAssosiatedTechnique(recordId: UUID) {
-        listOfTechniques.append(recordId)
+        
+        
+        if (listOfTechniques.contains(recordId)) {
+            return
+        }
+        self.listOfTechniques.append(recordId)
     }
 }
 

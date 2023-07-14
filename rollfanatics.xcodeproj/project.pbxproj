@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		27280F1C2A5C450C000155FC /* PositionPickerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27280F1B2A5C450C000155FC /* PositionPickerCardView.swift */; };
 		27280F212A5C461E000155FC /* PositionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27280F202A5C461E000155FC /* PositionPicker.swift */; };
+		272F560C2A5D91940031184E /* PositionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F560B2A5D91940031184E /* PositionCardView.swift */; };
+		272F560E2A5D91A40031184E /* PositionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F560D2A5D91A40031184E /* PositionListView.swift */; };
 		278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */; };
 		278E10FB2A463A4A00BF6812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FA2A463A4A00BF6812 /* Assets.xcassets */; };
 		278E10FE2A463A4A00BF6812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FD2A463A4A00BF6812 /* Preview Assets.xcassets */; };
@@ -20,9 +22,7 @@
 		27C63EFE2A54592600072CD1 /* TypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF62A54592600072CD1 /* TypePickerView.swift */; };
 		27C63EFF2A54592600072CD1 /* TechniqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF72A54592600072CD1 /* TechniqueView.swift */; };
 		27C63F002A54592600072CD1 /* TechniqueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF82A54592600072CD1 /* TechniqueListView.swift */; };
-		27C63F012A54592600072CD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EF92A54592600072CD1 /* ContentView.swift */; };
 		27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */; };
-		27C63F032A54592600072CD1 /* TechniqueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */; };
 		27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F052A54592F00072CD1 /* BodyParts.swift */; };
 		27C63F0B2A54592F00072CD1 /* PositionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F062A54592F00072CD1 /* PositionRecord.swift */; };
 		27C63F0C2A54592F00072CD1 /* TechniqueRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C63F072A54592F00072CD1 /* TechniqueRecord.swift */; };
@@ -50,6 +50,8 @@
 /* Begin PBXFileReference section */
 		27280F1B2A5C450C000155FC /* PositionPickerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerCardView.swift; sourceTree = "<group>"; };
 		27280F202A5C461E000155FC /* PositionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPicker.swift; sourceTree = "<group>"; };
+		272F560B2A5D91940031184E /* PositionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCardView.swift; sourceTree = "<group>"; };
+		272F560D2A5D91A40031184E /* PositionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionListView.swift; sourceTree = "<group>"; };
 		278E10F32A463A4800BF6812 /* rollfanatics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rollfanatics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsApp.swift; sourceTree = "<group>"; };
 		278E10FA2A463A4A00BF6812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,9 +66,7 @@
 		27C63EF62A54592600072CD1 /* TypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePickerView.swift; sourceTree = "<group>"; };
 		27C63EF72A54592600072CD1 /* TechniqueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueView.swift; sourceTree = "<group>"; };
 		27C63EF82A54592600072CD1 /* TechniqueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueListView.swift; sourceTree = "<group>"; };
-		27C63EF92A54592600072CD1 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTechniqueView.swift; sourceTree = "<group>"; };
-		27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueHeaderView.swift; sourceTree = "<group>"; };
 		27C63F052A54592F00072CD1 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
 		27C63F062A54592F00072CD1 /* PositionRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionRecord.swift; sourceTree = "<group>"; };
 		27C63F072A54592F00072CD1 /* TechniqueRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechniqueRecord.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 				27280F1F2A5C45F3000155FC /* TypePicker */,
 				27280F1E2A5C45E1000155FC /* PositionPicker */,
 				27C63EF72A54592600072CD1 /* TechniqueView.swift */,
+				27C63EF82A54592600072CD1 /* TechniqueListView.swift */,
+				27C63EF42A54592600072CD1 /* CardView.swift */,
 				27C63EFA2A54592600072CD1 /* NewTechniqueView.swift */,
 			);
 			path = TechniqueView;
@@ -126,6 +128,15 @@
 				27C63EF52A54592600072CD1 /* TypeView.swift */,
 			);
 			path = TypePicker;
+			sourceTree = "<group>";
+		};
+		272F56082A5D912E0031184E /* PositionView */ = {
+			isa = PBXGroup;
+			children = (
+				272F560B2A5D91940031184E /* PositionCardView.swift */,
+				272F560D2A5D91A40031184E /* PositionListView.swift */,
+			);
+			path = PositionView;
 			sourceTree = "<group>";
 		};
 		278E10EA2A463A4800BF6812 = {
@@ -187,12 +198,9 @@
 		27C63EF32A54592600072CD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				272F56082A5D912E0031184E /* PositionView */,
 				27280F1D2A5C4511000155FC /* TechniqueView */,
-				27C63EF42A54592600072CD1 /* CardView.swift */,
-				27C63EF82A54592600072CD1 /* TechniqueListView.swift */,
-				27C63EF92A54592600072CD1 /* ContentView.swift */,
 				278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */,
-				27C63EFB2A54592600072CD1 /* TechniqueHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,17 +350,17 @@
 				27C63F002A54592600072CD1 /* TechniqueListView.swift in Sources */,
 				27C63EFE2A54592600072CD1 /* TypePickerView.swift in Sources */,
 				27280F212A5C461E000155FC /* PositionPicker.swift in Sources */,
-				27C63F012A54592600072CD1 /* ContentView.swift in Sources */,
 				27C63EFC2A54592600072CD1 /* CardView.swift in Sources */,
 				27C63EFD2A54592600072CD1 /* TypeView.swift in Sources */,
 				27C63F0D2A54592F00072CD1 /* TechniqueType.swift in Sources */,
 				27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */,
-				27C63F032A54592600072CD1 /* TechniqueHeaderView.swift in Sources */,
 				278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */,
 				27280F1C2A5C450C000155FC /* PositionPickerCardView.swift in Sources */,
 				27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */,
+				272F560C2A5D91940031184E /* PositionCardView.swift in Sources */,
 				27C63EFF2A54592600072CD1 /* TechniqueView.swift in Sources */,
 				27C63F0E2A54592F00072CD1 /* Theme.swift in Sources */,
+				272F560E2A5D91A40031184E /* PositionListView.swift in Sources */,
 				27C63F0C2A54592F00072CD1 /* TechniqueRecord.swift in Sources */,
 				27C63F0B2A54592F00072CD1 /* PositionRecord.swift in Sources */,
 			);

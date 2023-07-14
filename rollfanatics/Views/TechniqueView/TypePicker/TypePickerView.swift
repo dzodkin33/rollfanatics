@@ -11,7 +11,7 @@ struct TypePickerView: View {
     @Binding var selected: TechniqueType
     
     var body: some View {
-        Picker("Techique Type:", selection: $selected) {
+        Picker("Techique Type:",selection: $selected) {
             ForEach(TechniqueType.allCases) {type in
                 TypeView(type: type).tag(type)
             }

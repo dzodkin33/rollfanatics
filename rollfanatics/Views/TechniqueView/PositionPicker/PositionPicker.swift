@@ -12,12 +12,21 @@ struct PositionPicker: View {
     @Binding var positions: [PositionRecord]
     
     var body: some View {
-        Picker("Position:",
-               selection: $record.position) {
-            ForEach($positions) { $position in
+        Picker(selection: $record.position,
+               label: Text("Position: \(record.position.name)")) {
+            // todo: it still kinda messes up a lot
+            ForEach($positions, id: \.id) { $position in
                 PositionPickerCardView(position: $position).tag(position)
             }
-        }.pickerStyle(.navigationLink)
+        }
+               .labelsHidden()
+               .pickerStyle(.navigationLink)
+               .onChange(of: record.position) {newPosition in
+                guard let positionRecordIndex = positions.firstIndex(of: newPosition) else {
+                    return
+                }
+                positions[positionRecordIndex].addAssosiatedTechnique(recordId: record.id)
+            }
     }
     
     

@@ -8,7 +8,10 @@
 import Foundation
 
 
-struct TechniqueRecord: Identifiable, Codable {
+struct TechniqueRecord: Identifiable, Codable, Equatable {
+    
+
+    
     
     let id: UUID
     var name: String
@@ -29,7 +32,7 @@ struct TechniqueRecord: Identifiable, Codable {
     
     mutating func setPosition(positionRecord: inout PositionRecord) {
         self.position = positionRecord
-        positionRecord.addAssosiatedTechnique(recordId: self.id)
+        self.position.addAssosiatedTechnique(recordId: self.id)
     }
 
     mutating func removePosition() {
@@ -41,7 +44,7 @@ struct TechniqueRecord: Identifiable, Codable {
 }
 
 extension TechniqueRecord {
-    struct Note: Identifiable, Codable {
+    struct Note: Identifiable, Codable, Equatable {
         let id: UUID
         var note: String
         

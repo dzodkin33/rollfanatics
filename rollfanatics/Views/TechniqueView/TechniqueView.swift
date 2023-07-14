@@ -36,7 +36,6 @@ struct TechniqueView: View {
                     }
                     PositionPicker(record: $record,
                                    positions: $positions)
-                    
                     TypePickerView(selected: $record.type)
                 }
                 Section (header: Text("Notes")) {
