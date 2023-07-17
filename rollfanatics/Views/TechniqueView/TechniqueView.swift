@@ -22,6 +22,8 @@ struct TechniqueView: View {
     
     // Determines if to show a conformation pop up
     @State private var showAlert = false
+    
+    @Binding var recordPsitionBindings: [PositionTechniqueBinding]
 
     @Environment(\.presentationMode) var presentation
     
@@ -35,7 +37,8 @@ struct TechniqueView: View {
 
                     }
                     PositionPicker(record: $record,
-                                   positions: $positions)
+                                   positions: $positions,
+                                   bindings: $recordPsitionBindings)
                     TypePickerView(selected: $record.type)
                 }
                 Section (header: Text("Notes")) {
@@ -106,6 +109,7 @@ struct TechniqueView_Previews: PreviewProvider {
     static var previews: some View {
         TechniqueView(positions: .constant(PositionRecord.sampleRecord),
                     record: .constant(TechniqueRecord.sampleData[0]),
-                      records:  .constant(TechniqueRecord.sampleData))
+                      records:  .constant(TechniqueRecord.sampleData),
+                      recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings))
     }
 }

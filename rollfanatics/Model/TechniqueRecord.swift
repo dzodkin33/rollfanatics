@@ -30,17 +30,6 @@ struct TechniqueRecord: Identifiable, Codable, Equatable {
         self.notes = notes.map {Note(note: $0)}
     }
     
-    mutating func setPosition(positionRecord: inout PositionRecord) {
-        self.position = positionRecord
-        self.position.addAssosiatedTechnique(recordId: self.id)
-    }
-
-    mutating func removePosition() {
-        var local = position
-        local.deleteAssosiatedTechnique(recordId: id)
-        position = PositionRecord.EmptyPosition
-    }
-
 }
 
 extension TechniqueRecord {

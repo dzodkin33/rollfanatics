@@ -36,7 +36,7 @@ struct rollfanaticsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TechniqueListView(records: $records, positions: $positions)
+            TechniqueListView(records: $records, positions: $positions, recordPsitionBindings: $recordBindings)
         }
     }
 }

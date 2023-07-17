@@ -12,10 +12,11 @@ struct NewTechniqueView: View {
     @Binding var records: [TechniqueRecord]
     @Binding var isPresentingNew: Bool
     @Binding var positions: [PositionRecord]
+    @Binding var recordPsitionBindings: [PositionTechniqueBinding]
     
     var body: some View {
         NavigationStack {
-            TechniqueView(positions: $positions, record: $newRecord, records: $records)
+            TechniqueView(positions: $positions, record: $newRecord, records: $records, recordPsitionBindings: $recordPsitionBindings)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dissmiss") {
@@ -39,6 +40,7 @@ struct NewTechniqueView_Previews: PreviewProvider {
         NewTechniqueView(
             records: .constant(TechniqueRecord.sampleData),
             isPresentingNew: .constant(true),
-            positions: .constant(PositionRecord.sampleRecord))
+            positions: .constant(PositionRecord.sampleRecord),
+            recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings))
     }
 }

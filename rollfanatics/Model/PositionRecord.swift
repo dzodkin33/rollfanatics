@@ -10,39 +10,15 @@ import Foundation
 struct PositionRecord:Identifiable, Codable, Hashable, Equatable  {
     let id: UUID
     var name: String
-    var listOfTechniques: [UUID]
     
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
     init(id: UUID = UUID(), name: String, listOfTechniques: [UUID]) {
         self.id = id
         self.name = name
-        self.listOfTechniques = listOfTechniques
-        
-    }
-    
-    func listTechniques(records: [TechniqueRecord]) -> [TechniqueRecord] {
-        var returnList: [TechniqueRecord] = []
-        
-        for record in records {
-            if (listOfTechniques.contains(record.id)) {
-                returnList.append(record)
-            }
-        }
-        
-        return returnList
-    }
-    
-    mutating func deleteAssosiatedTechnique(recordId: UUID) {
-        listOfTechniques.removeAll{ $0 == recordId }
-    }
-    
-    mutating func addAssosiatedTechnique(recordId: UUID) {
-        
-        
-        if (listOfTechniques.contains(recordId)) {
-            return
-        }
-        self.listOfTechniques.append(recordId)
     }
 }
 

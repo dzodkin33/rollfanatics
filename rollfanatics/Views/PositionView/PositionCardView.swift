@@ -17,7 +17,7 @@ struct PositionCardView: View {
             HStack {
                 HStack {
                     Text("Number of techniques")
-                    Text("\(position.listOfTechniques.count)")
+                    // Text("\(position.listOfTechniques.count)")
                 }
                 Spacer()
             }
