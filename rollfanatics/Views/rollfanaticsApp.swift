@@ -20,10 +20,10 @@ struct rollfanaticsApp: App {
         // Performs binding population
         for record in records {
             let pos: PositionRecord = record.position
-            var binding = recordBindings.first(where: {$0.position == pos})
+            let index: Int? = recordBindings.firstIndex(where: {$0.position == pos})
             
-            if (binding != nil) {
-                binding?.addAssosiatedTechnique(recordId: record.id)
+            if (index != nil) {
+                recordBindings[index!] = recordBindings[index!].addAssosiatedTechnique(recordId: record.id) // might work or not lol
             } else {
                 let binding = PositionTechniqueBinding(
                 position: pos,
@@ -36,7 +36,17 @@ struct rollfanaticsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TechniqueListView(records: $records, positions: $positions, recordPsitionBindings: $recordBindings)
+            NavigationView {
+                VStack {
+                    NavigationLink(destination:TechniqueListView(records: $records, positions: $positions, recordPsitionBindings: $recordBindings)) {
+                        Text("To techniques").font(.headline)
+                    }
+                    
+                    NavigationLink(destination:PositionListView(positions: $positions, records: $records, bindings: $recordBindings)) {
+                        Text("To positions").font(.headline)
+                    }
+                }
+            }
         }
     }
 }

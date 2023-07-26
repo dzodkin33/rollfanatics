@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PositionCardView: View {
     @Binding var position: PositionRecord
+    @Binding var bindings: [PositionTechniqueBinding]
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -17,7 +18,7 @@ struct PositionCardView: View {
             HStack {
                 HStack {
                     Text("Number of techniques")
-                    // Text("\(position.listOfTechniques.count)")
+                    Text("\(countTechniques(position: position, bindings: bindings))")
                 }
                 Spacer()
             }
@@ -29,6 +30,18 @@ struct PositionCardView: View {
 
 struct PositionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PositionCardView(position: .constant(PositionRecord.sampleRecord[0])).previewLayout(.fixed(width: 400, height: 100))
+        PositionCardView(position: .constant(PositionRecord.sampleRecord[0]),
+                         bindings: .constant(PositionTechniqueBinding.exampleBindings))
+            .previewLayout(.fixed(width: 400, height: 100))
     }
+}
+
+
+func countTechniques(position: PositionRecord, bindings: [PositionTechniqueBinding]) -> Int {
+    let index: Int? = bindings.firstIndex(where: {$0.position == position})
+    
+    if (index != nil) {
+        return bindings[index!].listOfTechniques.count
+    }
+    return 0;
 }

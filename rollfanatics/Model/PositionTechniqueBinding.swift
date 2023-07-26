@@ -9,7 +9,7 @@ import Foundation
 
 
 struct PositionTechniqueBinding {
-    let position: PositionRecord
+    var position: PositionRecord
     var listOfTechniques: [UUID]
     
     
@@ -58,30 +58,4 @@ extension PositionTechniqueBinding {
 extension PositionTechniqueBinding {
     static let exampleBindings: [PositionTechniqueBinding] = [
     ]
-}
-
-
-// Probably can be leter sent in to a separate helper class
-func addTechniquePositionBinding(bindings: inout [PositionTechniqueBinding],
-                                     positionRecord: PositionRecord,
-                                     techniqueRecordId: UUID) {
-    
-    var binding: PositionTechniqueBinding?  = bindings.first(where: {$0.position == positionRecord})
-    
-    if (binding != nil) {
-        binding!.addAssosiatedTechnique(recordId: techniqueRecordId)
-        print(bindings) // FIXME: debug here
-        print()
-    } else {
-        let newBinding = PositionTechniqueBinding(
-            position: positionRecord,
-            listOfTechniques: [techniqueRecordId])
-        bindings.append(newBinding)
-        
-    }
-    
-}
-
-func removeTechniquePositionBinding() {
-    
 }
