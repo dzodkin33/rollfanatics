@@ -25,17 +25,20 @@ struct PositionView: View {
             List {
                 Section(header: Text("Basic Info")) {
                     HStack {
-                        
-                        // TODO: on change of text must rebind everything
                         Text("Name: ")
                         TextField("Name", text: $position.name) //! MIGHT PRODUCE A BUG HERE
                             .multilineTextAlignment(.trailing)
                     }
-                    HStack {
-                        Text("List of techniques:")
+                }
+                Section(header: Text("List of techniques")) {
+                    ForEach(records.filter({$0.position == position})) { record in
+                        CardView(record: record)
+                            .listRowBackground(record.type.theme.mainColor)
                     }
                 }
             }
+            
+            
             
         }.onChange(of: position) {[oldposition = position] newPosition in
             
