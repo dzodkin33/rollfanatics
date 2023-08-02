@@ -18,32 +18,37 @@ struct PositionView: View {
         // Title [x]
         // Editable name [x]
         // Change color theme??
-        // List of assosiated techniques -> ListView w these techniques
-        // Notes
+        // List of assosiated techniques -> ListView w these techniques [x]
+        // Filter and sort of list of techniques and their properties
         
         VStack {
             List {
                 Section(header: Text("Basic Info")) {
                     HStack {
                         Text("Name: ")
-                        TextField("Name", text: $position.name) //! MIGHT PRODUCE A BUG HERE
+                        TextField("Name", text: $position.name)
                             .multilineTextAlignment(.trailing)
                     }
                 }
                 Section(header: Text("List of techniques")) {
-                    ForEach(records.filter({$0.position == position})) { record in
-                        CardView(record: record)
-                            .listRowBackground(record.type.theme.mainColor)
-                    }
+                        ForEach($records) { $record in
+                            if record.position == position {
+                                NavigationLink(destination: TechniqueView(
+                                    positions: $positions,
+                                    record: $record,
+                                    records: $records,
+                                    recordPsitionBindings: $bindings,
+                                    isViewOnly: true
+                                )) {
+                                        CardView(record: record).background(record.type.theme.mainColor)
+                                    }.listRowBackground(record.type.theme.mainColor)
+                            }
+                        }
                 }
             }
-            
-            
-            
         }.onChange(of: position) {[oldposition = position] newPosition in
             
             // performce the change the binding's and binded recrod's position to newly edited position
-            
             let index: Int? = bindings.firstIndex(where: {$0.position == oldposition})
             
             if (index == nil) {

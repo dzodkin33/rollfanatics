@@ -13,8 +13,11 @@ struct TechniqueListView: View {
     
     @Binding var positions: [PositionRecord]
     
-    @Binding var recordPsitionBindings: [PositionTechniqueBinding]
+    @Binding var bindings: [PositionTechniqueBinding]
     
+    
+    // TODO:
+    // Filters and orders
     
     var body: some View {
         NavigationStack {
@@ -23,7 +26,8 @@ struct TechniqueListView: View {
                     positions: $positions,
                     record: $record,
                     records: $records,
-                    recordPsitionBindings: $recordPsitionBindings)) {
+                    recordPsitionBindings: $bindings,
+                    isViewOnly: false)) {
                     CardView(record: record)
                     
                 } .listRowBackground(record.type.theme.mainColor)
@@ -38,7 +42,7 @@ struct TechniqueListView: View {
             }
         }
         .sheet(isPresented: $isPresentingNew) {
-            NewTechniqueView(records: $records, isPresentingNew: $isPresentingNew, positions: $positions, recordPsitionBindings: $recordPsitionBindings)
+            NewTechniqueView(records: $records, isPresentingNew: $isPresentingNew, positions: $positions, recordPsitionBindings: $bindings)
         }
     }
 }
@@ -47,6 +51,6 @@ struct TechniqueListView_Previews: PreviewProvider {
     static var previews: some View {
         TechniqueListView(records: .constant(TechniqueRecord.sampleData),
                           positions: .constant(PositionRecord.sampleRecord),
-                          recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings))
+                          bindings: .constant(PositionTechniqueBinding.exampleBindings))
     }
 }

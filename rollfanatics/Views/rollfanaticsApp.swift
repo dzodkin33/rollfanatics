@@ -38,7 +38,7 @@ struct rollfanaticsApp: App {
         WindowGroup {
             NavigationView {
                 VStack {
-                    NavigationLink(destination:TechniqueListView(records: $records, positions: $positions, recordPsitionBindings: $recordBindings)) {
+                    NavigationLink(destination:TechniqueListView(records: $records, positions: $positions, bindings: $recordBindings)) {
                         Text("To techniques").font(.headline)
                     }
                     

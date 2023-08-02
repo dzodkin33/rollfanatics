@@ -13,6 +13,7 @@
 		272F560E2A5D91A40031184E /* PositionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F560D2A5D91A40031184E /* PositionListView.swift */; };
 		272F56462A62D5020031184E /* PositionTechniqueBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F56452A62D5020031184E /* PositionTechniqueBinding.swift */; };
 		272F56482A6817560031184E /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F56472A6817560031184E /* PositionView.swift */; };
+		2749A6702A7A8FF10052FCB7 /* NewPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2749A66F2A7A8FF10052FCB7 /* NewPositionView.swift */; };
 		278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */; };
 		278E10FB2A463A4A00BF6812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FA2A463A4A00BF6812 /* Assets.xcassets */; };
 		278E10FE2A463A4A00BF6812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278E10FD2A463A4A00BF6812 /* Preview Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		272F560D2A5D91A40031184E /* PositionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionListView.swift; sourceTree = "<group>"; };
 		272F56452A62D5020031184E /* PositionTechniqueBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTechniqueBinding.swift; sourceTree = "<group>"; };
 		272F56472A6817560031184E /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
+		2749A66F2A7A8FF10052FCB7 /* NewPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPositionView.swift; sourceTree = "<group>"; };
 		278E10F32A463A4800BF6812 /* rollfanatics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rollfanatics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E10F62A463A4800BF6812 /* rollfanaticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rollfanaticsApp.swift; sourceTree = "<group>"; };
 		278E10FA2A463A4A00BF6812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				272F560B2A5D91940031184E /* PositionCardView.swift */,
 				272F560D2A5D91A40031184E /* PositionListView.swift */,
 				272F56472A6817560031184E /* PositionView.swift */,
+				2749A66F2A7A8FF10052FCB7 /* NewPositionView.swift */,
 			);
 			path = PositionView;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				27C63F0D2A54592F00072CD1 /* TechniqueType.swift in Sources */,
 				27C63F0A2A54592F00072CD1 /* BodyParts.swift in Sources */,
 				278E10F72A463A4800BF6812 /* rollfanaticsApp.swift in Sources */,
+				2749A6702A7A8FF10052FCB7 /* NewPositionView.swift in Sources */,
 				272F56462A62D5020031184E /* PositionTechniqueBinding.swift in Sources */,
 				27280F1C2A5C450C000155FC /* PositionPickerCardView.swift in Sources */,
 				27C63F022A54592600072CD1 /* NewTechniqueView.swift in Sources */,

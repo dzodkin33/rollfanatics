@@ -24,6 +24,8 @@ struct TechniqueView: View {
     @State private var showAlert = false
     
     @Binding var recordPsitionBindings: [PositionTechniqueBinding]
+    
+    var isViewOnly: Bool // referce to if it's possible to change the position of the technique
 
     @Environment(\.presentationMode) var presentation
     
@@ -36,9 +38,18 @@ struct TechniqueView: View {
                             .multilineTextAlignment(.trailing)
 
                     }
-                    PositionPicker(record: $record,
-                                   positions: $positions,
-                                   bindings: $recordPsitionBindings)
+                    
+                    if !isViewOnly {
+                        PositionPicker(record: $record,
+                                       positions: $positions,
+                                       bindings: $recordPsitionBindings)
+                    } else {
+                        HStack {
+                            Text("Position:")
+                            Spacer()
+                            PositionPickerCardView(position: $record.position)
+                        }
+                    }
                     TypePickerView(selected: $record.type)
                 }
                 Section (header: Text("Notes")) {
@@ -110,6 +121,8 @@ struct TechniqueView_Previews: PreviewProvider {
         TechniqueView(positions: .constant(PositionRecord.sampleRecord),
                     record: .constant(TechniqueRecord.sampleData[0]),
                       records:  .constant(TechniqueRecord.sampleData),
-                      recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings))
+                      recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings),
+                      isViewOnly: false
+        )
     }
 }
