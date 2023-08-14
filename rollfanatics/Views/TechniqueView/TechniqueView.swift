@@ -47,7 +47,7 @@ struct TechniqueView: View {
                         HStack {
                             Text("Position:")
                             Spacer()
-                            PositionPickerCardView(position: $record.position)
+                            Text(record.position.name)
                         }
                     }
                     TypePickerView(selected: $record.type)
@@ -112,6 +112,8 @@ struct TechniqueView: View {
                 return
             }
         }
+        
+        // todo: delete the binding as well
     }
 
 }

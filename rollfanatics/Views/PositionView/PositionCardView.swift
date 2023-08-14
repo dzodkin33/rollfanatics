@@ -17,7 +17,7 @@ struct PositionCardView: View {
             Spacer()
             HStack {
                 HStack {
-                    Text("Number of techniques")
+                    Label("Number of techniques", systemImage: "number")
                     Text("\(countTechniques(position: position, bindings: bindings))")
                 }
                 Spacer()

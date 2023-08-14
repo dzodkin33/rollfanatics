@@ -9,16 +9,21 @@ import SwiftUI
 
 struct TechniqueListView: View {
     @State private var isPresentingNew = false
+    
     @Binding var records: [TechniqueRecord]
     
     @Binding var positions: [PositionRecord]
     
     @Binding var bindings: [PositionTechniqueBinding]
     
+    @Environment(\.scenePhase) private var scenePhase
+    
+    let saveAction: ()->Void
+    
+    
     
     // TODO:
     // Filters and orders
-    
     var body: some View {
         NavigationStack {
             List($records) {$record in
@@ -44,6 +49,9 @@ struct TechniqueListView: View {
         .sheet(isPresented: $isPresentingNew) {
             NewTechniqueView(records: $records, isPresentingNew: $isPresentingNew, positions: $positions, recordPsitionBindings: $bindings)
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive {saveAction()}
+        }
     }
 }
 
@@ -51,6 +59,6 @@ struct TechniqueListView_Previews: PreviewProvider {
     static var previews: some View {
         TechniqueListView(records: .constant(TechniqueRecord.sampleData),
                           positions: .constant(PositionRecord.sampleRecord),
-                          bindings: .constant(PositionTechniqueBinding.exampleBindings))
+                          bindings: .constant(PositionTechniqueBinding.exampleBindings), saveAction: {})
     }
 }

@@ -9,13 +9,23 @@ import SwiftUI
 
 struct PositionListView: View {
     @State var isPresentingNew = false
+    
+    @State var sortType: SortTypes = .byDefault
+    
     @Binding var positions: [PositionRecord]
+    
     @Binding var records: [TechniqueRecord]
+    
     @Binding var bindings: [PositionTechniqueBinding]
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
+    let saveAction: ()->Void
     
     // sort by name and number of techniques
     var body: some View {
         NavigationStack {
+            
             List($positions) {$position in
                 NavigationLink(destination: PositionView(
                     position: $position,
@@ -44,6 +54,9 @@ struct PositionListView: View {
             )
             
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive {saveAction()}
+        }
     }
 }
 
@@ -52,7 +65,15 @@ struct PositionListView_Previews: PreviewProvider {
         PositionListView(
             positions: .constant(PositionRecord.sampleRecord),
             records: .constant(TechniqueRecord.sampleData),
-            bindings: .constant(PositionTechniqueBinding.exampleBindings)
+            bindings: .constant(PositionTechniqueBinding.exampleBindings), saveAction: {}
         )
     }
+}
+
+
+enum SortTypes {
+    case byAlphaAscending
+    case byAlphaDescending
+    case byNumTechniques
+    case byDefault
 }

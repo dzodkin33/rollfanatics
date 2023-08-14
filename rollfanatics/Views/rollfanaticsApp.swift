@@ -9,42 +9,60 @@ import SwiftUI
 
 @main
 struct rollfanaticsApp: App {
-    @State var positions: [PositionRecord] = PositionRecord.sampleRecord
-    @State var records:[TechniqueRecord] = TechniqueRecord.sampleData// todo: populate here
-    @State var recordBindings:[PositionTechniqueBinding] =  []
+    @StateObject private var store = DataStore()
     
-    // TODO: here we also have to load up data from
-    init() {
-        
-        
-        // Performs binding population
-        for record in records {
-            let pos: PositionRecord = record.position
-            let index: Int? = recordBindings.firstIndex(where: {$0.position == pos})
-            
-            if (index != nil) {
-                recordBindings[index!] = recordBindings[index!].addAssosiatedTechnique(recordId: record.id) // might work or not lol
-            } else {
-                let binding = PositionTechniqueBinding(
-                position: pos,
-                listOfTechniques: [record.id])
-                recordBindings.append(binding)
-            }
-        }
-        
-    }
+    @State var recordBindings:[PositionTechniqueBinding] =  []
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                VStack {
-                    NavigationLink(destination:TechniqueListView(records: $records, positions: $positions, bindings: $recordBindings)) {
-                        Text("To techniques").font(.headline)
+            
+            TabView {
+                TechniqueListView(records: $store.records, positions: $store.positions, bindings: $recordBindings) {
+                    Task {
+                                                do {
+                                                    try await store.saveRecords(recods: store.records)
+                                                    try await store.savePositions(positions: store.positions)
+                                                } catch {
+                                                    fatalError(error.localizedDescription)
+                                                }
+                    }
+                }
+                .tabItem {
+                    Label("Techniques", systemImage: "rectangle.stack.fill")
+                }
+                
+                PositionListView(positions: $store.positions, records: $store.records, bindings: $recordBindings) {
+                    Task {
+                                                do {
+                                                    try await store.savePositions(positions: store.positions)
+                                                } catch {
+                                                    fatalError(error.localizedDescription)
+                                                }
+                    }
+                }
+                .tabItem {
+                    Label("Positions", systemImage: "folder")
+                }
+            }.task {
+                do {
+                    try await store.load()
+                    
+                    for record in store.records {
+                        let pos: PositionRecord = record.position
+                        let index: Int? = recordBindings.firstIndex(where: {$0.position == pos})
+                        
+                        if (index != nil) {
+                            recordBindings[index!] = recordBindings[index!].addAssosiatedTechnique(recordId: record.id) // might work or not lol
+                        } else {
+                            let binding = PositionTechniqueBinding(
+                                position: pos,
+                                listOfTechniques: [record.id])
+                            recordBindings.append(binding)
+                        }
                     }
                     
-                    NavigationLink(destination:PositionListView(positions: $positions, records: $records, bindings: $recordBindings)) {
-                        Text("To positions").font(.headline)
-                    }
+                } catch {
+                    fatalError(error.localizedDescription)
                 }
             }
         }
