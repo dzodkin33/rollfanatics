@@ -10,7 +10,7 @@ import SwiftUI
 struct PositionListView: View {
     @State var isPresentingNew = false
     
-    @State var sortType: SortTypes = .byDefault
+    @State private var sortType: PositionSortTypes = .none
     
     @Binding var positions: [PositionRecord]
     
@@ -22,27 +22,63 @@ struct PositionListView: View {
     
     let saveAction: ()->Void
     
+    var sortedPositions: [PositionRecord] {
+        switch sortType {
+        case .name:
+            return positions.sorted {
+                $0.name < $1.name
+            }
+        case .number:
+            return positions.sorted {
+                let lhs: PositionRecord = $0
+                let rhs: PositionRecord = $1
+                return bindings.first(where: {$0.position == lhs})!.listOfTechniques.count > bindings.first(where: {$0.position == rhs})!.listOfTechniques.count
+            }
+        case .none:
+            return positions
+        }
+    }
+    
     // sort by name and number of techniques
     var body: some View {
         NavigationStack {
             
-            List($positions) {$position in
+            List(sortedPositions) {position in
                 NavigationLink(destination: PositionView(
-                    position: $position,
+                    position: $positions[positions.firstIndex(of: position)!],
                     positions: $positions,
                     records: $records,
                     bindings: $bindings)) {
-                    PositionCardView(position: $position,
+                    PositionCardView(position: position,
                                      bindings: $bindings)
                 }
             }
             .navigationTitle("Position Wiki")
             .toolbar {
-                Button(action: {
-                    isPresentingNew = true
-                }) {
-                    Image(systemName: "plus")
+                ToolbarItemGroup {
+                    Button(action: {
+                        isPresentingNew = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
                 }
+                
+                ToolbarItemGroup(placement: .navigation) {
+                    HStack {
+                        Picker("Sort",selection: $sortType) {
+                            ForEach(PositionSortTypes.allCases, id: \.self) { value in
+                                VStack(alignment: .leading) {
+                                    HStack{
+                                        Image(systemName: "line.3.horizontal.decrease")
+                                        Text(value.toName)
+                                    }.tag(value)
+                                }
+                            }
+                        }.labelsHidden()
+
+                    }
+                }
+                
             }
         }
         .sheet(isPresented: $isPresentingNew) {
@@ -60,20 +96,15 @@ struct PositionListView: View {
     }
 }
 
-struct PositionListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PositionListView(
-            positions: .constant(PositionRecord.sampleRecord),
-            records: .constant(TechniqueRecord.sampleData),
-            bindings: .constant(PositionTechniqueBinding.exampleBindings), saveAction: {}
-        )
+enum PositionSortTypes: CaseIterable {
+    case number, name, none
+    
+    var toName : String {
+        switch self {
+        case .name: return "Name"
+        case .number: return "Number"
+        case .none: return "None"
+            
+        }
     }
-}
-
-
-enum SortTypes {
-    case byAlphaAscending
-    case byAlphaDescending
-    case byNumTechniques
-    case byDefault
 }

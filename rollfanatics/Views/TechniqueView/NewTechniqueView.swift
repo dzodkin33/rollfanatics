@@ -20,7 +20,7 @@ struct NewTechniqueView: View {
                 positions: $positions,
                 record: $newRecord,
                 records: $records,
-                recordPsitionBindings: $recordPsitionBindings,
+                bindings: $recordPsitionBindings,
                 isViewOnly: false
             )
                 .toolbar {

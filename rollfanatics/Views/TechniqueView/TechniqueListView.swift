@@ -20,18 +20,35 @@ struct TechniqueListView: View {
     
     let saveAction: ()->Void
     
+    @State private var sortType: RecordsSortType = .none
     
+    var sortedRecords: [TechniqueRecord] {
+        switch sortType {
+        case .type:
+            return records.sorted {
+                $0.type.name < $1.type.name
+            }
+        case .position:
+            return records.sorted {
+                $0.position.name < $1.position.name
+            }
+        case .name:
+            return records.sorted {
+                $0.name < $1.name
+            }
+        case .none:
+            return records
+        }
+    }
     
-    // TODO:
-    // Filters and orders
     var body: some View {
         NavigationStack {
-            List($records) {$record in
+            List(sortedRecords) {record in
                 NavigationLink(destination: TechniqueView(
                     positions: $positions,
-                    record: $record,
+                    record: $records[records.firstIndex(of: record)!],
                     records: $records,
-                    recordPsitionBindings: $bindings,
+                    bindings: $bindings,
                     isViewOnly: false)) {
                     CardView(record: record)
                     
@@ -39,10 +56,28 @@ struct TechniqueListView: View {
             }
             .navigationTitle("Technique Wiki")
             .toolbar {
-                Button(action: {
-                    isPresentingNew = true
-                }) {
-                    Image(systemName: "plus")
+                ToolbarItemGroup {
+                    Button(action: {
+                        isPresentingNew = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    
+                }
+                ToolbarItemGroup(placement: .navigation) {
+                    HStack {
+                        Picker("Sort",selection: $sortType) {
+                            ForEach(RecordsSortType.allCases, id: \.self) { value in
+                                VStack(alignment: .leading) {
+                                    HStack{
+                                        Image(systemName: "line.3.horizontal.decrease")
+                                        Text(value.toName)
+                                    }.tag(value)
+                                }
+                            }
+                        }.labelsHidden()
+
+                    }
                 }
             }
         }
@@ -60,5 +95,19 @@ struct TechniqueListView_Previews: PreviewProvider {
         TechniqueListView(records: .constant(TechniqueRecord.sampleData),
                           positions: .constant(PositionRecord.sampleRecord),
                           bindings: .constant(PositionTechniqueBinding.exampleBindings), saveAction: {})
+    }
+}
+
+enum RecordsSortType: CaseIterable {
+    case type, position, name, none
+    
+    var toName : String {
+        switch self {
+        case .type: return "Type"
+        case .name: return "Name"
+        case .position: return "Position"
+        case .none: return "None"
+            
+        }
     }
 }

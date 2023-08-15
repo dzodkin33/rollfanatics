@@ -23,7 +23,7 @@ struct TechniqueView: View {
     // Determines if to show a conformation pop up
     @State private var showAlert = false
     
-    @Binding var recordPsitionBindings: [PositionTechniqueBinding]
+    @Binding var bindings: [PositionTechniqueBinding]
     
     var isViewOnly: Bool // referce to if it's possible to change the position of the technique
 
@@ -42,7 +42,7 @@ struct TechniqueView: View {
                     if !isViewOnly {
                         PositionPicker(record: $record,
                                        positions: $positions,
-                                       bindings: $recordPsitionBindings)
+                                       bindings: $bindings)
                     } else {
                         HStack {
                             Text("Position:")
@@ -106,14 +106,19 @@ struct TechniqueView: View {
     
     // Delete current record and go back to navigation view 
     func deleteRecord() {
+        for index in $bindings.indices {
+            if bindings[index].listOfTechniques.contains(record.id) {
+                let toDelIndex: Int = bindings[index].listOfTechniques.firstIndex(of: record.id)!
+                bindings[index].listOfTechniques.remove(at: toDelIndex)
+            }
+        }
+        
         for index in $records.indices {
             if $records[index].id == record.id  {
                 records.remove(at: index)
                 return
             }
         }
-        
-        // todo: delete the binding as well
     }
 
 }
@@ -123,7 +128,7 @@ struct TechniqueView_Previews: PreviewProvider {
         TechniqueView(positions: .constant(PositionRecord.sampleRecord),
                     record: .constant(TechniqueRecord.sampleData[0]),
                       records:  .constant(TechniqueRecord.sampleData),
-                      recordPsitionBindings: .constant(PositionTechniqueBinding.exampleBindings),
+                      bindings: .constant(PositionTechniqueBinding.exampleBindings),
                       isViewOnly: false
         )
     }

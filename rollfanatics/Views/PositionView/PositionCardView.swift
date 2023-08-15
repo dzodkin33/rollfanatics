@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PositionCardView: View {
-    @Binding var position: PositionRecord
+    let position: PositionRecord
     @Binding var bindings: [PositionTechniqueBinding]
     
     var body: some View {
@@ -30,7 +30,7 @@ struct PositionCardView: View {
 
 struct PositionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PositionCardView(position: .constant(PositionRecord.sampleRecord[0]),
+        PositionCardView(position: PositionRecord.sampleRecord[0],
                          bindings: .constant(PositionTechniqueBinding.exampleBindings))
             .previewLayout(.fixed(width: 400, height: 100))
     }

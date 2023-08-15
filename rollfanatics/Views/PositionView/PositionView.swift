@@ -20,6 +20,24 @@ struct PositionView: View {
     
     @Environment(\.presentationMode) var presentation
     
+    @State private var sortType: BindingSortType  = .none
+    
+    var sortedRecords: [TechniqueRecord] {
+        switch sortType {
+        case .type:
+            return records.sorted {
+                $0.type.name < $1.type.name
+            }
+        case .name:
+            return records.sorted {
+                $0.name < $1.name
+            }
+        case .none:
+            return records
+        }
+    }
+
+    
     var body: some View {
         
         // Title [x]
@@ -37,8 +55,18 @@ struct PositionView: View {
                     }
                 }
                 Section(header: Text("List of techniques")) {
+                        Picker("Sort",selection: $sortType) {
+                            ForEach(BindingSortType.allCases, id: \.self) { value in
+                                VStack(alignment: .leading) {
+                                    HStack{
+                                        Image(systemName: "line.3.horizontal.decrease")
+                                        Text(value.toName)
+                                    }.tag(value)
+                                }
+                            }
+                        }.labelsHidden()
                         // todo later add the navigation link to these cards
-                        ForEach($records) { $record in
+                        ForEach(sortedRecords) { record in
                             if record.position == position {
                                 CardView(record: record).listRowBackground(record.type.theme.mainColor)
                             }
@@ -102,5 +130,18 @@ struct PositionView_Previews: PreviewProvider {
                      positions: .constant(PositionRecord.sampleRecord),
                      records: .constant(TechniqueRecord.sampleData),
                      bindings: .constant(PositionTechniqueBinding.exampleBindings))
+    }
+}
+
+enum BindingSortType: CaseIterable {
+    case type, name, none
+    
+    var toName : String {
+        switch self {
+        case .type: return "Type"
+        case .name: return "Name"
+        case .none: return "None"
+            
+        }
     }
 }

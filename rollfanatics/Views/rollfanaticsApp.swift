@@ -21,7 +21,6 @@ struct rollfanaticsApp: App {
                     Task {
                                                 do {
                                                     try await store.saveRecords(recods: store.records)
-                                                    try await store.savePositions(positions: store.positions)
                                                 } catch {
                                                     fatalError(error.localizedDescription)
                                                 }
